@@ -7,8 +7,12 @@
       <option value="Africa">Africa</option>
       <option value="Asia">Asia</option>
     </select>
-    <div v-for="(item, id) in presentedCountries" :key="id">
-      <router-link :to="'/' + item.name">
+    <div>
+      <router-link
+        v-for="(item, id) in presentedCountries"
+        :key="id"
+        :to="'/' + item.name"
+      >
         {{ item.name }}
       </router-link>
     </div>
@@ -28,11 +32,11 @@ export default {
       selectedCountries: null,
     });
 
+    //Search by country name
     watch(
       () => state.searchValue,
       () => {
         if (state.selectValue == "All") {
-          //default
           if (state.searchValue == "") {
             state.searchedCountries = state.allCountries;
           } else {
@@ -43,10 +47,9 @@ export default {
             });
           }
           state.presentedCountries = state.searchedCountries;
-          //
         } else {
           if (state.searchValue == "") {
-            state.searchedCountries = state.selectedCountries;
+            state.searchedCountries = state.presentedCountries;
           } else {
             state.searchedCountries = state.selectedCountries.filter(
               ({ name }) => {
@@ -61,11 +64,11 @@ export default {
       }
     );
 
+    //Filter by region
     watch(
       () => state.selectValue,
       () => {
         state.searchValue = "";
-        //default
         if (state.selectValue == "All") {
           state.selectedCountries = state.allCountries;
         } else {
@@ -74,21 +77,29 @@ export default {
           });
         }
         state.presentedCountries = state.selectedCountries;
-        //
       }
     );
 
+    //Fetch countries data
     state.allCountries = await fetch(
-      "https://restcountries.eu/rest/v2/all?fields=name;nativeName;population;region;subRegion;capital;topLevelDomain;currencies;language;borderCountries"
+      "https://restcountries.eu/rest/v2/all?fields=flag;name;population;region;capital"
     )
       .then((response) => response.json())
       .then((data) => data);
-
     state.presentedCountries = state.allCountries;
 
+    //
+    //
+    //
     return {
       ...toRefs(state),
     };
   },
 };
 </script>
+
+<style>
+a {
+  display: block;
+}
+</style>
