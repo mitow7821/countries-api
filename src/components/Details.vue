@@ -93,7 +93,7 @@ export default {
     watch(
       () => state.id,
       () => {
-        changeCountry(state.id);
+        state.id ? changeCountry(state.id) : null;
       }
     );
 
