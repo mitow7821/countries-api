@@ -1,6 +1,8 @@
 <template>
   <div>
-    <router-link to="/">Back</router-link>
+    <router-link to="/">
+      <ion-icon name="arrow-back"></ion-icon>Back</router-link
+    >
     <router-link
       :to="'/' + item"
       v-for="(item, index) in translatedBorders"
