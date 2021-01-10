@@ -28,7 +28,7 @@
       </div>
 
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-x-16 gap-y-14"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 3xl:grid-cols-5 gap-x-10 xl:gap-x-14 gap-y-14 px-6 sm:px-0"
       >
         <router-link
           v-for="(item, id) in presentedCountries"
@@ -43,7 +43,7 @@
                 class="min-w-full h-full object-cover rounded-t-md"
               />
             </div>
-            <div class="h-52 pt-6 pl-7">
+            <div class="h-52 pt-6 pl-7 pr-3">
               <h1 class="font-extrabold text-lg pb-4">{{ item.name }}</h1>
               <div class="pb-1">
                 <span class="font-semibold">Population: </span>
