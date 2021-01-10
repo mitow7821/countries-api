@@ -1,9 +1,9 @@
 <template>
-  <div class="flex-grow bg-gray-50">
+  <div class="flex-grow bg-light dark:bg-dark text-dark">
     <div class="w-11/12 mx-auto px-5 xl:px-0">
       <router-link
         to="/"
-        class="flex items-center justify-center w-32 bg-white my-12 py-1 gap-2 shadow border rounded"
+        class="flex items-center justify-center w-32 bg-white my-12 py-1 gap-2 shadow border rounded dark:bg-dark2 dark:border-dark dark:text-light"
       >
         <ion-icon name="arrow-back"></ion-icon>
         <p class="pr-2 mt-0.5 font-semibold">Back</p></router-link
@@ -12,10 +12,12 @@
         <div class="lg:h-92 xl:w-1/2 self-start">
           <img
             :src="country[0].flag"
-            class="h-full w-full xl:w-5/6 object-cover shadow-md mx-auto xl:mx-0"
+            class="h-full w-full xl:w-5/6 object-cover mx-auto xl:mx-0"
           />
         </div>
-        <div class="xl:w-1/2 mt-12 xl:mt-6 self-start pl-2 xl:pl-0">
+        <div
+          class="xl:w-1/2 mt-12 xl:mt-6 self-start pl-2 xl:pl-0 dark:text-light"
+        >
           <h1 class="text-3xl font-extrabold pb-8">{{ country[0].name }}</h1>
           <div class="flex flex-col xl:flex-row gap-8 xl:gap-32">
             <div>
@@ -61,10 +63,11 @@
             class="flex flex-col xl:flex-row items-center mt-8 mb-16"
             v-show="translatedBorders.length"
           >
-            <span class="font-semibold mr-10 mb-6 self-start whitespace-nowrap"
+            <span
+              class="font-semibold mr-10 mb-6 xl:mb-0 self-start whitespace-nowrap"
               >Border Countries:
             </span>
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 items-strech">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
               <router-link
                 :to="'/' + item"
                 v-for="(item, index) in translatedBorders"
@@ -72,7 +75,7 @@
                 class="mr-2"
               >
                 <p
-                  class="py-1.5 xl:py-1 sm:px-3 h-full bg-white shadow-sm border rounded text-center"
+                  class="py-1.5 xl:py-1 px-3 h-full bg-white shadow-sm border rounded text-center dark:bg-dark2 dark:border-dark dark:text-light"
                 >
                   {{ item }}
                 </p>

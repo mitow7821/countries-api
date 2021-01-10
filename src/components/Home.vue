@@ -1,22 +1,25 @@
 <template>
-  <div class="bg-gray-50 flex-grow">
+  <div class="bg-light dark:bg-dark flex-grow text-dark">
     <div class="w-11/12 mx-auto">
       <div class="flex justify-between flex-col sm:flex-row gap-6 py-8">
         <div
-          class="flex items-center bg-white w-100 sm:w-1/2 lg:w-1/3 shadow-sm border rounded"
+          class="flex items-center bg-white w-100 sm:w-1/2 lg:w-1/3 shadow-sm border rounded dark:bg-dark2 dark:border-dark"
         >
-          <ion-icon name="search" class="px-4 text-gray-400"></ion-icon>
+          <ion-icon
+            name="search"
+            class="px-4 text-inputs dark:text-light"
+          ></ion-icon>
           <input
             type="text"
             v-model="searchValue"
             placeholder="Search for a country ..."
-            class="outline-none py-3 w-full pr-5 text-sm rounded"
+            class="outline-none pb-3 pt-3.5 w-full pr-5 text-sm rounded dark:bg-dark2 placeholder-gray-500 dark:placeholder-white dark:text-light"
           />
         </div>
 
         <select
           v-model="selectValue"
-          class="shadow-sm border outline-none w-1/2 sm:w-28 px-1 rounded py-2 sm:py-auto"
+          class="shadow-sm border outline-none w-1/2 sm:w-28 px-1 rounded py-2 sm:py-auto dark:bg-dark2 dark:border-dark dark:text-light"
         >
           <option value="All" selected>All</option>
           <option value="Africa">Africa</option>
@@ -35,7 +38,9 @@
           :key="id"
           :to="'/' + item.name"
         >
-          <div class="bg-white shadow-md rounded-md">
+          <div
+            class="bg-white shadow-md rounded-md dark:bg-dark2 dark:text-light"
+          >
             <div class="h-48">
               <img
                 :src="item.flag"

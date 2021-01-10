@@ -1,6 +1,6 @@
 <template>
-  <div class="py-5 shadow relative dark:bg-gray-900 dark:text-white">
-    <div class="flex items-center justify-between w-10/12 mx-auto">
+  <div class="py-5 shadow relative dark:bg-dark2 dark:text-light text-dark">
+    <div class="flex items-center justify-between w-11/12 mx-auto">
       <h1 class="text-xl font-extrabold">Where in the world?</h1>
       <div @click="toggleDarkMode" class="flex cursor-pointer items-center">
         <ion-icon name="moon-outline" v-if="visible"></ion-icon>
