@@ -3,7 +3,20 @@
     <div class="w-11/12 mx-auto px-5 xl:px-0">
       <router-link
         to="/"
-        class="flex items-center justify-center w-32 bg-white my-12 py-1 gap-2 shadow border rounded dark:bg-dark2 dark:border-dark dark:text-light"
+        class="
+          flex
+          items-center
+          justify-center
+          w-32
+          bg-white
+          my-12
+          py-1
+          gap-2
+          shadow
+          border
+          rounded
+          dark:bg-dark2 dark:border-dark dark:text-light
+        "
       >
         <ion-icon name="arrow-back"></ion-icon>
         <p class="pr-2 mt-0.5 font-semibold">Back</p></router-link
@@ -64,7 +77,14 @@
             v-show="translatedBorders.length"
           >
             <span
-              class="font-semibold mr-10 mb-6 xl:mb-0 self-start whitespace-nowrap"
+              class="
+                font-semibold
+                mr-10
+                mb-6
+                xl:mb-0
+                self-start
+                whitespace-nowrap
+              "
               >Border Countries:
             </span>
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -75,7 +95,18 @@
                 class="mr-2"
               >
                 <p
-                  class="py-1.5 xl:py-1 px-3 h-full bg-white shadow-sm border rounded text-center dark:bg-dark2 dark:border-dark dark:text-light"
+                  class="
+                    py-1.5
+                    xl:py-1
+                    px-3
+                    h-full
+                    bg-white
+                    shadow-sm
+                    border
+                    rounded
+                    text-center
+                    dark:bg-dark2 dark:border-dark dark:text-light
+                  "
                 >
                   {{ item }}
                 </p>
@@ -131,13 +162,13 @@ export default {
 
     //Helper data for border countries translation
     state.countries = await fetch(
-      `https://restcountries.eu/rest/v2/all?fields=name;flag`
+      `https://restcountries.com/rest/v2/all?fields=name;flag`
     )
       .then((response) => response.json())
       .then((data) => {
         data.forEach((el) => {
           el.flag = el.flag
-            .split("https://restcountries.eu/data/")[1]
+            .split("https://restcountries.com/data/")[1]
             .split(".")[0];
         });
         return data;
@@ -145,7 +176,7 @@ export default {
 
     //Fetch detailed data for selected country
     state.country = await fetch(
-      `https://restcountries.eu/rest/v2/name/${state.id}?fields=flag;name;nativeName;population;region;subregion;capital;topLevelDomain;currencies;languages;borders`
+      `https://restcountries.com/rest/v2/name/${state.id}?fields=flag;name;nativeName;population;region;subregion;capital;topLevelDomain;currencies;languages;borders`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -162,7 +193,7 @@ export default {
     //Change country with border buttons
     function changeCountry(route) {
       fetch(
-        `https://restcountries.eu/rest/v2/name/${route}?fields=flag;name;nativeName;population;region;subregion;capital;topLevelDomain;currencies;languages;borders`
+        `https://restcountries.com/rest/v2/name/${route}?fields=flag;name;nativeName;population;region;subregion;capital;topLevelDomain;currencies;languages;borders`
       )
         .then((response) => response.json())
         .then((data) => {
